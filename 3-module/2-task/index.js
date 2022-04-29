@@ -1,3 +1,6 @@
+//Anton Shashlov
 function filterRange(arr, a, b) {
-  // ваш код...
+  let filtred = arr.filter(element => 
+    element >= a && element <= b);
+  return filtred;
 }

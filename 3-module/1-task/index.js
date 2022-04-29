@@ -1,3 +1,6 @@
 function namify(users) {
-  // ваш код...
+  let names = [];
+  users.forEach((el, i) => 
+    names[i] = users[i].name);
+  return names;
 }
