@@ -7,7 +7,7 @@ function highlight(table) {
     if (table.rows[i].cells[3].dataset.available === 'false') {
       table.rows[i].classList.toggle('unavailable'); 
     } else {
-      table.rows[i].setAttribute('hidden', null);
+      table.rows[i].hidden = true;
     }   
   }     
   for (let i = 1; i < table.rows.length; i++) {

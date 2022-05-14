@@ -1,3 +1,5 @@
+//Anton Shashlov
 function hideSelf() {
-  // ваш код...
+  let buttonHidden = document.body.querySelector('button');
+  return buttonHidden.onclick = () => buttonHidden.hidden = true;
 }
