@@ -1,3 +1,57 @@
+
 function initCarousel() {
-  // ваш код...
-}
+  const carouselArrowRight = document.querySelector ('[class="carousel__arrow carousel__arrow_right"]');
+  const carouselArrowLeft = document.querySelector ('[class="carousel__arrow carousel__arrow_left"]');
+  const carouselInner = document.querySelector ('[class="carousel__inner"]');
+  const carouselSlide = document.querySelector ('[class="carousel__slide"]');
+
+  const widthCarouselSlide = carouselSlide.offsetWidth;
+  const countCarouselSlides = carouselInner.childElementCount;
+  let positionMargin = 0;
+  carouselArrowLeft.style.display = 'none';
+  
+  carouselArrowLeft.onclick = function() {
+    positionMargin += widthCarouselSlide;
+    positionMargin = Math.min(positionMargin, 0);
+    carouselInner.style.transform = `translateX(${positionMargin}px)`;
+    hidingArrow();
+  };
+  
+  carouselArrowRight.onclick = function() {
+    positionMargin -= widthCarouselSlide;
+    positionMargin = Math.max(positionMargin, -widthCarouselSlide * (countCarouselSlides - 1));
+    carouselInner.style.transform = `translateX(${positionMargin}px)`;
+    hidingArrow();
+  };
+
+  function hidingArrow () {
+    positionMargin === -widthCarouselSlide * (countCarouselSlides - 1)
+      ? carouselArrowRight.style.display = 'none'
+      : carouselArrowRight.style.display = '';
+
+    positionMargin === 0
+      ? carouselArrowLeft.style.display = 'none'
+      : carouselArrowLeft.style.display = '';
+  }
+} 
+
+/* function hidingArrow () {
+    if (positionMargin === -widthCarouselSlide * (countCarouselSlides - 1)) {
+      carouselArrowRight.style.display = 'none';
+    }
+    if (positionMargin !== (-widthCarouselSlide * (countCarouselSlides - 1))) {
+      carouselArrowRight.style.display = '';
+    } 
+    if (positionMargin === 0) {
+      carouselArrowLeft.style.display = 'none';
+    }
+    if (positionMargin !== 0) {
+      carouselArrowLeft.style.display = '';
+    } 
+  } */
+    
+      
+ 
+
+  
+initCarousel();
